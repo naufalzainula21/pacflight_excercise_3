@@ -1,0 +1,10 @@
+.env
+temp/
+logs/
+__pycache__/
+*.pyc
+dbt_pactravel/target/
+dbt_pactravel/dbt_packages/
+dbt_pactravel/logs/
+.DS_Store
+dbt_pactravel/.user.yml

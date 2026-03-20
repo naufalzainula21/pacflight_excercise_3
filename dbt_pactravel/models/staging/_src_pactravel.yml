@@ -1,0 +1,88 @@
+version: 2
+
+sources:
+  - name: pactravel
+    schema: pactravel
+    description: "Staging schema — mirror of source DB tables loaded by Luigi EL pipeline."
+    tables:
+      - name: aircrafts
+        description: "Aircraft reference data."
+        columns:
+          - name: aircraft_id
+            description: "Primary key."
+          - name: aircraft_name
+          - name: aircraft_iata
+          - name: aircraft_icao
+
+      - name: airlines
+        description: "Airline reference data."
+        columns:
+          - name: airline_id
+            description: "Primary key."
+          - name: airline_name
+          - name: country
+          - name: airline_iata
+          - name: airline_icao
+          - name: alias
+
+      - name: airports
+        description: "Airport reference data."
+        columns:
+          - name: airport_id
+            description: "Primary key."
+          - name: airport_name
+          - name: city
+          - name: latitude
+          - name: longitude
+
+      - name: customers
+        description: "Customer master data."
+        columns:
+          - name: customer_id
+            description: "Primary key."
+          - name: customer_first_name
+          - name: customer_family_name
+          - name: customer_gender
+          - name: customer_birth_date
+          - name: customer_country
+          - name: customer_phone_number
+
+      - name: hotel
+        description: "Hotel reference data."
+        columns:
+          - name: hotel_id
+            description: "Primary key."
+          - name: hotel_name
+          - name: hotel_address
+          - name: city
+          - name: country
+          - name: hotel_score
+
+      - name: flight_bookings
+        description: "Flight booking transactions."
+        columns:
+          - name: trip_id
+          - name: flight_number
+          - name: seat_number
+          - name: customer_id
+          - name: airline_id
+          - name: aircraft_id
+          - name: airport_src
+          - name: airport_dst
+          - name: departure_time
+          - name: departure_date
+          - name: flight_duration
+          - name: travel_class
+          - name: price
+
+      - name: hotel_bookings
+        description: "Hotel booking transactions."
+        columns:
+          - name: trip_id
+            description: "Primary key."
+          - name: customer_id
+          - name: hotel_id
+          - name: check_in_date
+          - name: check_out_date
+          - name: price
+          - name: breakfast_included

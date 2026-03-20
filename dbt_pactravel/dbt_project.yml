@@ -1,0 +1,23 @@
+name: dbt_pactravel
+version: '1.0.0'
+config-version: 2
+
+profile: dbt_pactravel
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  dbt_pactravel:
+    staging:
+      +materialized: view
+    dimensions:
+      +materialized: table
+    facts:
+      +materialized: table
+
+snapshots:
+  dbt_pactravel:
+    +target_schema: final

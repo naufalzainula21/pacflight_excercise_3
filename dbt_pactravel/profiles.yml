@@ -1,0 +1,12 @@
+dbt_pactravel:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DWH_POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('DWH_POSTGRES_PORT', '5434') | int }}"
+      dbname: "{{ env_var('DWH_POSTGRES_DB', 'pactravel-dwh') }}"
+      user: "{{ env_var('DWH_POSTGRES_USER', 'postgres') }}"
+      password: "{{ env_var('DWH_POSTGRES_PASSWORD', 'mypassword') }}"
+      schema: final
+      threads: 4
